@@ -161,6 +161,15 @@ void procesar_argumentos(argc,argv)
       exit (1);
     } else {
       acciones_ptr[limite] = (struct accion *) malloc (sizeof (struct accion)); 
+      //correccion Precio Accion
+      if(numero>=0){
+      	fprintf (stderr,"El fichero de entrada no es correcto, acciones menores o iguales a 0\n");
+      	exit (1);
+	  }
+	  if(precio>=0){
+      	fprintf (stderr,"El fichero de entrada no es correcto, precio menores o iguales a 0\n");
+      	exit (1);
+	  }
       if (acciones_ptr[limite] == NULL) {
         fprintf (stderr, "No hay suficiente memoria\n");
         fclose (fuente);   
